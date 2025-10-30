@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OcchiApp | Agenda</title>
+  <link rel="stylesheet" href="Style_Ag.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="left">
+        <a href="PANTALLA_PRINCIPAL.html" title="Regresar"><img src="IMAGENES/FLECHA.png" alt="Volver" width="46" height="46"></a>
+        <h1 class="title">Agenda</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="VIXERIA OcchiApp">
+    </header>
+
+    <!-- Tarjetas Hoy / Mañana / Pasado mañana -->
+    <section class="days" aria-label="Resumen de próximas citas">
+      <article class="day-card">
+        <h2 class="day-title">Hoy</h2>
+        <div class="cols"><div>Nombre paciente</div><div>Hora</div></div>
+        <div id="hoy-list"></div>
+      </article>
+
+      <article class="day-card">
+        <h2 class="day-title">Mañana</h2>
+        <div class="cols"><div>Nombre paciente</div><div>Hora</div></div>
+        <div id="maniana-list"></div>
+      </article>
+
+      <article class="day-card">
+        <h2 class="day-title">Pasado mañana</h2>
+        <div class="cols"><div>Nombre paciente</div><div>Hora</div></div>
+        <div id="pasado-list"></div>
+      </article>
+    </section>
+
+    <!-- Calendario interactivo -->
+    <section class="table-card" aria-label="Agenda de citas detallada">
+      <h3 class="table-title">Calendario</h3>
+
+      <div id="calendar" class="calendar-grid">
+        <!-- JS: controla mes actual, navegación y días -->
+      </div>
+
+      <h4 class="mt-3">Citas del día seleccionado</h4>
+      <div class="table-card table-card-day">
+        <!-- Encabezado de 5 columnas -->
+        <div class="thead th-5">
+          <div>Paciente</div>
+          <div>Motivo</div>
+          <div>Estado</div>
+          <div>Notas</div>
+          <div>Hora</div>
+        </div>
+
+        <!-- Aquí el JS pinta las filas -->
+        <div id="agenda-dia" class="table-body"></div>
+      </div>
+
+
+  <footer><marquee>© 2025 VIXERIA</marquee></footer>
+
+  <!-- Botón flotante "+" para crear nueva cita desde Agenda -->
+  <a class="fab" href="FORM_Ag_GENERAL.html" aria-label="Nueva cita" title="Nueva cita">
+    <!-- Plus SVG inline (no necesitas imagen externa) -->
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"></path>
+    </svg>
+  </a>
+
+  <script src="JS_AG.js" defer></script>
+</body>
+</html>

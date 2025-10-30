@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OcchiApp | Historia clínica</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Estilos OcchiApp -->
+  <link rel="stylesheet" href="Style_Vis_HC.css" />
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="d-flex align-items-center justify-content-between mb-3">
+      <div class="d-flex align-items-center gap-2">
+        <a class="back" href="EXPEDIENTES.html" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="28" height="28">
+        </a>
+        <h1 class="title m-0">Historia Clínica</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="OcchiApp">
+    </header>
+
+    <!-- Hoja -->
+    <main class="sheet">
+
+      <!-- Encabezado / Datos Generales -->
+      <section class="section">
+        <h2 class="sec-title">Datos Generales</h2>
+        <div class="dg">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="grid">
+            <div><span class="label">Nombre:</span> <span class="value">Marcos Javier Victoria Cervantes</span></div>
+            <div><span class="label">Fecha de nacimiento:</span> <span class="value">11/11/2006</span></div>
+            <div><span class="label">Edad:</span> <span class="value">18</span></div>
+            <div><span class="label">Sexo:</span> <span class="value">Masculino</span></div>
+            <div><span class="label">Ocupación:</span> <span class="value">Estudiante</span></div>
+            <div><span class="label">Teléfono:</span> <span class="value">5531980140</span></div>
+            <div><span class="label">Correo:</span> <span class="value">mj.victoriac@gmail.com</span></div>
+            <div><span class="label">ID Paciente:</span> <span class="value">RX/2025-001</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Anamnesis -->
+      <section class="section">
+        <h2 class="sec-title">Anamnesis</h2>
+        <div class="two">
+          <div>
+            <div class="rowline"><span class="label">Motivo de consulta:</span> <span class="value">Revisión anual</span></div>
+            <div class="rowline"><span class="label">Último examen de la vista:</span> <span class="value">Hace 2 años</span></div>
+          </div>
+          <div>
+            <div class="rowline"><span class="label">¿Usa lentes?</span> <span class="value">Sí</span></div>
+            <div class="rowline"><span class="label">¿Desde cuándo?</span> <span class="value">5 años</span></div>
+          </div>
+        </div>
+
+        <h3 class="sub">Síntomas</h3>
+        <div class="symp">
+          <div><span class="label">Dolor de cabeza:</span> <span class="value">Sí</span></div>
+          <div><span class="label">Mareos:</span> <span class="value">Sí</span></div>
+          <div><span class="label">Ojo rojo:</span> <span class="value">No</span></div>
+          <div><span class="label">Lagrimeo:</span> <span class="value">Sí</span></div>
+          <div><span class="label">Visión doble:</span> <span class="value">Sí</span></div>
+          <div><span class="label">Visión borrosa:</span> <span class="value">No</span></div>
+          <div><span class="label">Aros de luz:</span> <span class="value">No</span></div>
+          <div><span class="label">Ojo seco:</span> <span class="value">No</span></div>
+          <div class="full"><span class="label">Otro:</span> <span class="value">Ninguno</span></div>
+        </div>
+      </section>
+
+      <!-- Historia médica -->
+      <section class="section">
+        <h2 class="sec-title">Historia médica</h2>
+        <div class="two">
+          <div>
+            <div class="rowline"><span class="label">¿Padece alguna enfermedad?</span> <span class="value">Sí</span></div>
+            <div class="rowline"><span class="label">Diabetes:</span> <span class="value">Sí</span></div>
+            <div class="rowline"><span class="label">¿Desde cuándo?</span> <span class="value">10 años</span></div>
+          </div>
+          <div>
+            <div class="rowline"><span class="label">Hipertensión:</span> <span class="value">No</span></div>
+            <div class="rowline"><span class="label">Tx:</span> <span class="value">Metformina</span></div>
+            <div class="rowline"><span class="label">Familiares con enfermedad:</span> <span class="value">Padre (DM2)</span></div>
+          </div>
+        </div>
+
+        <h3 class="sub">Historia médica ocular</h3>
+        <div class="two">
+          <div>
+            <div class="rowline"><span class="label">Catarata:</span> <span class="value">Sí</span></div>
+            <div class="rowline"><span class="label">¿Desde cuándo?</span> <span class="value">2 años</span></div>
+            <div class="rowline"><span class="label">DMAE:</span> <span class="value">Sí</span></div>
+            <div class="rowline"><span class="label">¿Desde cuándo?</span> <span class="value">1 año</span></div>
+          </div>
+          <div>
+            <div class="rowline"><span class="label">Retinopatía diabética:</span> <span class="value">No</span></div>
+            <div class="rowline"><span class="label">Alteración en N.O.:</span> <span class="value">No</span></div>
+            <div class="rowline"><span class="label">Tx:</span> <span class="value">N/A</span></div>
+            <div class="rowline"><span class="label">Última visita al oftalmólogo:</span> <span class="value">15/12/2024</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Consultas (Exámenes clínicos) -->
+      <section class="section">
+        <h2 class="sec-title">Consultas / Exámenes clínicos</h2>
+
+        <div class="table-card">
+          <div class="thead">
+            <div>Consulta</div><div>Fecha</div><div>Notas</div><div class="right">Acciones</div>
+          </div>
+
+          <!-- Fila 1 (ejemplo) -->
+          <div class="trow">
+            <div>1ª</div>
+            <div>15/12/2024</div>
+            <div>Revisión general</div>
+            <div class="right actions">
+              <button class="icon-btn" data-action="ver-consulta" data-idx="0" title="Ver" aria-label="Ver esta consulta">
+                <img src="IMAGENES/VER.png" alt="Ver" width="24" height="24">
+              </button>
+              <button class="icon-btn" data-action="edit-consulta" data-idx="0" title="Editar" aria-label="Editar esta consulta">
+                <img src="IMAGENES/EDITAR.png" alt="Editar" width="24" height="24">
+              </button>
+              <button class="icon-btn danger" data-action="del-consulta" data-idx="0" title="Eliminar" aria-label="Eliminar esta consulta">
+                <img src="IMAGENES/ELIMINAR.png" alt="Eliminar" width="24" height="24">
+              </button>
+            </div>
+          </div>
+
+          <!-- Fila 2 (ejemplo) -->
+          <div class="trow">
+            <div>2ª</div>
+            <div>10/01/2025</div>
+            <div>RX final + entrega</div>
+            <div class="right actions">
+              <button class="icon-btn" data-action="ver-consulta" data-idx="1" title="Ver" aria-label="Ver esta consulta">
+                <img src="IMAGENES/VER.png" alt="Ver" width="24" height="24">
+              </button>
+              <button class="icon-btn" data-action="edit-consulta" data-idx="1" title="Editar" aria-label="Editar esta consulta">
+                <img src="IMAGENES/EDITAR.png" alt="Editar" width="24" height="24">
+              </button>
+              <button class="icon-btn danger" data-action="del-consulta" data-idx="1" title="Eliminar" aria-label="Eliminar esta consulta">
+                <img src="IMAGENES/ELIMINAR.png" alt="Eliminar" width="24" height="24">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Finanzas -->
+      <section class="section">
+        <h2 class="sec-title">Finanzas</h2>
+        <div class="two">
+          <div class="table-card">
+            <div class="thead">
+              <div>Tipo</div><div>Fecha</div><div class="right">Monto</div>
+            </div>
+            <div class="trow">
+              <div>Venta</div><div>10/01/2025</div><div class="right">$ 1,999.00</div>
+            </div>
+            <div class="trow">
+              <div>Pago</div><div>10/01/2025</div><div class="right">$ 999.00</div>
+            </div>
+          </div>
+          <div class="totals">
+            <div class="rowline"><span class="label">Total vendido:</span> <span class="value">$ 1,999.00</span></div>
+            <div class="rowline"><span class="label">Pagado:</span> <span class="value">$ 999.00</span></div>
+            <div class="rowline"><span class="label">Adeudo:</span> <span class="value strong">$ 1,000.00</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Próxima cita -->
+      <section class="section">
+        <h2 class="sec-title">Próxima cita</h2>
+        <div class="appointment">
+          <div class="rowline"><span class="label">Fecha:</span>  <span class="value">${proximaCita ? proximaCita.fecha  : '—'}</span></div>
+          <div class="rowline"><span class="label">Hora:</span>   <span class="value">${proximaCita ? proximaCita.hora   : '—'}</span></div>
+          <div class="rowline"><span class="label">Motivo:</span> <span class="value">${proximaCita ? esc(proximaCita.motivo) : '—'}</span></div>
+          <div class="rowline"><span class="label">Estado:</span> <span class="value">${proximaCita ? esc(proximaCita.estado) : '—'}</span></div>
+          <div class="rowline"><span class="label">Notas:</span>  <span class="value">${proximaCita ? esc(proximaCita.notas)  : '—'}</span></div>
+        </div>
+      </section>
+
+
+    </main>
+
+    <footer class="mt-3 text-muted fw-bold">© 2025 VIXERIA</footer>
+  </div>
+
+  <!-- Botón flotante: abre Offcanvas -->
+  <button class="fab" type="button" data-bs-toggle="offcanvas" data-bs-target="#ocAcciones" aria-controls="ocAcciones" title="Agregar">
+    +
+  </button>
+
+  <!-- Offcanvas de acciones -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="ocAcciones" aria-labelledby="ocAccionesLabel">
+    <div class="offcanvas-header">
+      <h5 id="ocAccionesLabel" class="m-0 fw-bold">Acciones</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="mb-2 text-muted">Elige qué quieres agregar a este expediente:</p>
+      <div class="d-grid gap-2">
+        <a href="FORM_EC.html" class="btn btn-outline-dark btn-lg">Nuevo examen clínico</a>
+        <a href="FORM_VP.html" class="btn btn-outline-dark btn-lg">Registrar venta / pago</a>
+        <a href="FORM_Ag.html" class="btn btn-outline-dark btn-lg">Crear cita</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <!-- JS propio -->
+  <script src="JS_EX.js"></script>
+  <script src="JS_EC.js"></script>
+  <script src="JS_AG.js"></script>
+</body>
+</html>

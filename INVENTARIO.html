@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OcchiApp | Inventario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="Style_In.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="left">
+        <a href="PANTALLA_PRINCIPAL.html" title="Regresar"><img src="IMAGENES/FLECHA.png" alt="Volver" width="46" height="46"></a>
+        <h1 class="title">Inventario</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="VIXERIA OcchiApp">
+    </header>
+
+    <section class="table-card" aria-label="Inventario de productos">
+      <div class="table-h">
+        <h2 class="table-title">Productos</h2>
+      </div>
+
+      <div class="grid-head">
+        <div class="hide-sm">ID</div>
+        <div>Modelo</div>
+        <div class="hide-sm">Línea</div>
+        <div>Precio</div>
+        <div>Cantidad</div>
+        <div class="right">Acciones</div>
+      </div>
+    </section>
+
+    <div class="search-sort mt-3">
+      <input type="text" id="searchInput" class="form-control" placeholder="Buscar por ID, modelo, línea...">
+      <select id="sortSelect" class="form-select mt-2">
+        <option value="">Ordenar por...</option>
+        <option value="id">ID</option>
+        <option value="modelo">Modelo</option>
+        <option value="linea">Línea</option>
+        <option value="precio">Precio</option>
+        <option value="cantidad">Cantidad</option>
+      </select>
+      <button id="exportPDF" class="btn btn-success mt-3">Exportar a PDF</button>
+    </div>
+  </div>
+
+  <button class="fab" type="button" title="Agregar producto"
+          data-bs-toggle="offcanvas" data-bs-target="#ocNuevo" aria-controls="ocNuevo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 5v14M5 12h14"/>
+    </svg>
+  </button>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="ocNuevo" aria-labelledby="ocNuevoLabel">
+    <div class="offcanvas-header">
+      <h5 id="ocNuevoLabel" class="m-0 fw-bold">Agregar producto</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form class="form-stack" action="#" method="post">
+        <div class="mb-2">
+          <label for="inv_modelo" class="form-label">Modelo</label>
+          <input id="inv_modelo" name="modelo" type="text" class="form-control" placeholder="Nombre del producto" required>
+        </div>
+        <div class="mb-2">
+          <label for="inv_linea" class="form-label">Línea</label>
+          <select id="inv_linea" name="linea" class="form-select" required>
+            <option value="" selected disabled>Selecciona…</option>
+            <option>Gold</option>
+            <option>Premium</option>
+            <option>Accesorio</option>
+          </select>
+        </div>
+        <div class="row g-2">
+          <div class="col-6">
+            <label for="inv_precio" class="form-label">Precio (MXN)</label>
+            <input id="inv_precio" name="precio" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" required>
+          </div>
+          <div class="col-6">
+            <label for="inv_cantidad" class="form-label">Cantidad</label>
+            <input id="inv_cantidad" name="cantidad" type="number" min="0" class="form-control" placeholder="0" required>
+          </div>
+        </div>
+        <div class="d-grid gap-2 mt-3">
+          <button type="submit" class="btn-occhi">Guardar</button>
+          <button type="button" class="btn-occhi-sec" data-bs-dismiss="offcanvas">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="ocEditar" aria-labelledby="ocEditarLabel">
+    <div class="offcanvas-header">
+      <h5 id="ocEditarLabel" class="m-0 fw-bold">Editar producto</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form class="form-stack" action="#" method="post">
+        <div class="mb-2">
+          <label for="ed_id" class="form-label">ID / Código de barras</label>
+          <input id="ed_id" name="inv_id" type="text" class="form-control" readonly>
+        </div>
+        <div class="mb-2">
+          <label for="ed_modelo" class="form-label">Modelo</label>
+          <input id="ed_modelo" name="modelo" type="text" class="form-control" required>
+        </div>
+        <div class="mb-2">
+          <label for="ed_linea" class="form-label">Línea</label>
+          <select id="ed_linea" name="linea" class="form-select" required>
+            <option>Gold</option>
+            <option>Premium</option>
+            <option>Accesorio</option>
+          </select>
+        </div>
+        <div class="row g-2">
+          <div class="col-6">
+            <label for="ed_precio" class="form-label">Precio (MXN)</label>
+            <input id="ed_precio" name="precio" type="number" step="0.01" min="0" class="form-control" required>
+          </div>
+          <div class="col-6">
+            <label for="ed_cantidad" class="form-label">Cantidad</label>
+            <input id="ed_cantidad" name="cantidad" type="number" min="0" class="form-control" required>
+          </div>
+        </div>
+        <div class="d-grid gap-2 mt-3">
+          <button type="submit" class="btn-occhi">Guardar cambios</button>
+          <button type="button" class="btn-occhi-sec" data-bs-dismiss="offcanvas">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="JS_INVENTARIO.js"></script>
+</body>
+</html>

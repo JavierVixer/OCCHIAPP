@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OcchiApp | Operación Diaria</title>
+  <link rel="stylesheet" href="Style_Od.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <a class="back" href="FINANZAS.html" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="28" height="28">
+        </a>
+        <h1 class="title">Operación diaria</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="VIXERIA OcchiApp">
+    </header>
+
+    <!-- Barra de filtro -->
+    <section class="filters" aria-label="Filtros">
+      <label for="fdate">Fecha</label>
+      <input id="fdate" type="date" />
+      <button class="btn" type="button" disabled>Aplicar</button>
+    </section>
+
+    <!-- Layout principal -->
+    <main class="layout">
+      <!-- Columna izquierda: Resumen -->
+      <section class="col">
+        <!-- Ventas -->
+        <article class="card kpi">
+          <h2>Ventas del día</h2>
+          <div class="kpi-amount">$ —</div>
+          <p class="muted">Suma de todas las ventas registradas para la fecha seleccionada.</p>
+        </article>
+
+        <!-- Cortes de caja -->
+        <article class="card">
+          <h3>Cortes de caja</h3>
+          <div class="rows head">
+            <div>Corte</div><div class="right">Monto</div>
+          </div>
+          <div class="rows"><div>A</div><div class="right">—</div></div>
+          <div class="rows"><div>B</div><div class="right">—</div></div>
+          <div class="rows"><div>C</div><div class="right">—</div></div>
+        </article>
+
+        <!-- Métodos de pago -->
+        <article class="card">
+          <h3>Métodos de pago</h3>
+          <div class="rows head">
+            <div>Método</div><div class="right">Monto</div>
+          </div>
+          <div class="rows"><div>Efectivo</div><div class="right">—</div></div>
+          <div class="rows"><div>Tarjeta</div><div class="right">—</div></div>
+          <div class="rows"><div>Transferencia</div><div class="right">—</div></div>
+        </article>
+      </section>
+
+      <!-- Columna derecha: Productos vendidos -->
+      <aside class="card products" aria-label="Productos vendidos">
+        <h3>Productos vendidos</h3>
+
+        <div class="table-head">
+          <div>Producto</div>
+          <div class="center">Cant.</div>
+          <div class="right">Importe</div>
+        </div>
+
+        <!-- Filas de ejemplo (placeholder) -->
+        <div class="table-row">
+          <div class="ellipsis muted">—</div>
+          <div class="center muted">—</div>
+          <div class="right">—</div>
+        </div>
+        <div class="table-row">
+          <div class="ellipsis muted">—</div>
+          <div class="center muted">—</div>
+          <div class="right">—</div>
+        </div>
+        <div class="table-row">
+          <div class="ellipsis muted">—</div>
+          <div class="center muted">—</div>
+          <div class="right">—</div>
+        </div>
+
+        <hr class="sep" />
+        <div class="total">
+          <span>Total productos</span>
+          <strong>$ —</strong>
+        </div>
+      </aside>
+    </main>
+
+    <footer>© 2025 VIXERIA</footer>
+  </div>
+</body>
+</html>

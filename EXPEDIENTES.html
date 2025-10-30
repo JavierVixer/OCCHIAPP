@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>OcchiApp | Expedientes</title>
+  <link rel="stylesheet" href="Style_Ex.css" />
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <a href="PANTALLA_PRINCIPAL.html" title="Regresar" class="back">
+          <img src="IMAGENES/FLECHA.png" alt="Volver" width="28" height="28">
+        </a>
+        <h1 class="title">Expedientes</h1>
+      </div>
+      <img src="IMAGENES/LOGO.png" alt="OcchiApp" class="logo" />
+    </header>
+
+    <!-- Tarjeta con tabla -->
+    <main>
+      <section class="table-card">
+        <div class="table-toolbar">
+          <h2 id="tituloTabla">Lista de expedientes</h2>
+          <!-- Botón de agregar (lleva al formulario) -->
+          <a class="btn-occhi" href="FORM_HC.html">+ Nuevo</a>
+        </div>
+
+        <table aria-describedby="tituloTabla">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Género</th>
+              <th scope="col">Edad</th>
+              <th scope="col" class="right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="expedientesBody">
+            <!-- Aquí se pintan las filas desde JS_Ex.js -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>© 2025 VIXERIA</footer>
+  </div>
+
+  <!-- Botón flotante Agregar paciente -->
+  <a href="FORM_HC.html" class="fab" title="Agregar paciente">+</a>
+
+  <script src="JS_EX.js"></script>
+</body>
+</html>

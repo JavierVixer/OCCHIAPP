@@ -1,0 +1,333 @@
+:root{
+  --borde:#111;
+  --bg:#f1f1f3;
+  --card:#ffffff;
+  --ink:#111;
+  --muted:#60646c;
+  --accent:#0d47a1;
+  --accent-2:#00acc1;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--bg);
+  font-family: Georgia, "Times New Roman", serif; color:var(--ink);
+}
+
+/* --------- Layout general --------- */
+.wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 18px 100px;
+  background: var(--bg);
+}
+
+/* --------- Header --------- */
+header{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin-bottom:18px;
+}
+.left{ display:flex; align-items:center; gap:12px; }
+.back{
+  width:44px; height:44px; border:3px solid var(--borde);
+  border-radius:10px; display:grid; place-items:center;
+  background:#fff; text-decoration:none; color:var(--ink);
+}
+.back svg{ width:18px; height:18px; }
+.title{ font-size:44px; font-weight:900; margin:0; }
+.logo{ height:48px; width:auto; }
+
+/* --------- Tarjetas Hoy/Mañana/PM --------- */
+.days{
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap:18px; margin-bottom:22px;
+}
+.day-card{
+  background: var(--card);
+  border:3px solid var(--borde);
+  border-radius:18px; padding:16px 16px 18px;
+  min-height: 280px; position:relative; overflow:hidden;
+}
+.day-card::before{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(120% 100% at 0% 100%, #1c1c1c 0%, #ededed 85%);
+  mix-blend-mode: multiply; opacity:.22; pointer-events:none;
+}
+.day-title{
+  position:relative; z-index:1;
+  font-size:32px; font-weight:900; margin:0 0 10px;
+}
+.cols{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns: 1fr 110px; gap:10px;
+  color:var(--ink); font-weight:700; margin-bottom:8px;
+}
+.row{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns: 1fr 110px; gap:10px;
+  padding:6px 0; border-bottom:1px dashed #d9d9d9;
+}
+.row:last-child{ border-bottom:0; }
+.muted{ color:var(--muted); font-weight:600; }
+
+/* --------- Agenda de citas (lista) --------- */
+.table-card{
+  position:relative;
+  background: var(--card);
+  border: 3px solid var(--borde);
+  border-radius: 16px; padding: 14px;
+}
+.table-title{ font-size:28px; font-weight:900; margin:0 0 10px; }
+.table-head, .table-row{
+  display:grid; grid-template-columns: 150px 1fr 150px 120px; gap:10px;
+  align-items:center;
+}
+.table-head{
+  border:3px solid var(--borde); border-radius:10px; padding:10px; margin-bottom:8px;
+  font-weight:900;
+}
+.table-row{
+  background:#fff; border:1px solid #ddd; border-radius:8px;
+  padding:10px; margin-bottom:6px;
+}
+.table-row:nth-child(odd){ background:#fafafa; }
+
+/* --------- Botón flotante “+” --------- */
+.fab{
+  position: fixed; right: 24px; bottom: 24px;
+  width: 68px; height: 68px; border-radius: 50%;
+  background: #fff;
+  border:3px solid var(--borde);
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; color:var(--ink);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  transition: transform .1s ease;
+  z-index: 1000; /* <- añadido */
+}
+.fab:hover{ transform: translateY(-2px); }
+.fab svg{ width:28px; height:28px; }
+
+/* --------- Responsive --------- */
+@media (max-width:960px){
+  .days{ grid-template-columns:1fr; }
+  .title{ font-size:38px; }
+  .table-head, .table-row{ grid-template-columns: 120px 1fr 120px 100px; }
+}
+@media (max-width:560px){
+  .table-head, .table-row{ grid-template-columns: 1fr 120px; }
+  .hide-m{ display:none; } /* oculta ID y Fecha en móviles estrechos */
+}
+
+/* Mejora visual del calendario (más grande y limpio) */
+#calendar {
+  max-width: 920px;
+  margin: 8px auto;
+}
+.cal-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.cal-nav button {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cal-title {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+.cal-head {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  font-weight: 700;
+  text-align: center;
+  margin: 6px 0 8px;
+}
+.cal-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.cal-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 108px;
+  padding: 10px;
+  border: 1px solid #e3e3e3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  transition: transform .06s ease;
+}
+.cal-cell:hover { transform: translateY(-1px); }
+.cal-daynum {
+  font-weight: 700;
+  font-size: 1.1rem;
+  align-self: flex-start;
+  }
+.cal-badge {
+  align-self: flex-end;
+  font-size: .8rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #d0d0d0;
+  opacity: .9;
+}
+.cal-cell.active { outline: 3px solid #222; }
+.cal-filler { visibility: hidden; }
+@media (max-width: 768px) {
+  .cal-cell { min-height: 72px; }
+}
+
+/* ===== Tabla "Citas del día seleccionado" ===== */
+.table-card {
+  background: #fff;
+  border: 1px solid #e8eaef;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(20, 23, 28, 0.04);
+  overflow: hidden;
+}
+
+.table-card-day {
+  margin-top: 8px;
+}
+
+.table-card .thead,
+.table-card .table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.6fr 1fr 2fr 0.8fr; /* Paciente, Motivo, Estado, Notas, Hora */
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.table-card .thead {
+  background: #f6f7fb;
+  border-bottom: 1px solid #e8eaef;
+  font-weight: 600;
+  color: #1b2330;
+  position: sticky;
+  top: 0;             /* útil si haces scroll dentro */
+  z-index: 1;
+}
+
+.table-card .table-body .table-row {
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.table-card .table-body .table-row:last-child {
+  border-bottom: none;
+}
+
+.table-card .muted {
+  color: #858fa3;
+}
+
+/* Truncado elegante para notas largas */
+.table-card .col-notas {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hora alineada a la derecha si lo prefieres */
+.table-card .col-hora {
+  justify-self: end;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Responsive ===== */
+/* < 900px: hacemos un poco más compacta la tabla */
+@media (max-width: 900px) {
+  .table-card .thead,
+  .table-card .table-body .table-row {
+    grid-template-columns: 1.8fr 1.3fr 0.9fr 1.6fr 0.7fr;
+    gap: 10px;
+  }
+}
+
+/* < 720px: ocultamos Notas para que no se rompa el layout */
+@media (max-width: 720px) {
+  .table-card .thead div:nth-child(4) { /* "Notas" */
+    display: none;
+  }
+  .table-card .table-body .table-row .col-notas {
+    display: none;
+  }
+
+  .table-card .thead,
+  .table-card .table-body .table-row {
+    grid-template-columns: 2fr 1.2fr 0.9fr 0.8fr; /* Paciente, Motivo, Estado, Hora */
+  }
+}
+
+/* < 520px: ocultamos también Estado y priorizamos Paciente, Motivo, Hora */
+@media (max-width: 520px) {
+  .table-card .thead div:nth-child(3) { /* "Estado" */
+    display: none;
+  }
+  .table-card .table-body .table-row .col-estado {
+    display: none;
+  }
+
+  .table-card .thead,
+  .table-card .table-body .table-row {
+    grid-template-columns: 2fr 1.6fr 0.7fr; /* Paciente, Motivo, Hora */
+  }
+}
+
+/* Colapse estilo agenda */
+#agenda-dia { display: grid; gap: 10px; }
+.day-item { border: 1px solid #d5d5d5; border-radius: 10px; background:#f9f9fb; overflow:hidden; }
+.day-item[open] .day-head { border-bottom: 1px dashed #ccc; }
+.day-head { display:grid; grid-template-columns: 2fr 2fr 0.6fr; gap:10px; align-items:center; padding:10px 14px; cursor:pointer; font-weight:600; }
+.day-body { padding: 10px 14px; }
+.day-body .rowline { display:flex; gap:8px; padding:4px 0; }
+.day-body .label { min-width: 70px; color:#555; }
+.day-body .value { flex:1; }
+
+.actions { display:flex; gap:8px; justify-content:flex-end; margin-top:10px; }
+.btn-ghost { background:#fff; border:1px solid #bbb; border-radius:8px; padding:6px 10px; cursor:pointer; }
+.btn-danger { background:#fceaea; border:1px solid #f2b6b6; color:#b30; border-radius:8px; padding:6px 10px; cursor:pointer; }
+.input { width:100%; border:1px solid #cfcfcf; border-radius:8px; padding:6px 8px; background:#fff; }
+.day-body.editing .value { display:none; }
+
+@media (max-width: 720px){
+  .day-head { grid-template-columns: 1.4fr 1.2fr 0.6fr; }
+  .day-head .motivo { display:none; } /* si te estorba en móvil */
+}
+
+/* Encabezado de la tabla de agenda (si ya lo tienes, ignora) */
+.table-card .table-title + .thead {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 1.1fr 2fr 0.7fr; /* name, motivo, estado, notas, hora */
+  gap: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+/* El summary (cabecera del colapse) usa la misma grilla */
+.day-head {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 1.1fr 2fr 0.7fr; /* name, motivo, estado, notas, hora */
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Truncar notas a una línea para que no “rompan” la fila */
+.day-head .notas {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

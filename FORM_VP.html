@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OcchiApp | Registrar venta/pago</title>
+
+  <!-- (Opcional) Bootstrap helpers; no es obligatorio -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos OcchiApp -->
+  <link rel="stylesheet" href="Style_Form_VP.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="left">
+        <a class="back" href="EXPEDIENTES.html" title="Regresar" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="22" height="22">
+        </a>
+        <h1 class="title">Registrar venta / pago</h1>
+      </div>
+      <img src="IMAGENES/LOGO.png" alt="OcchiApp" class="logo">
+    </header>
+
+    <!-- Contenido -->
+    <main class="layout">
+      <!-- Formulario -->
+      <section class="card-occhi">
+        <h2 class="card-title">Movimiento</h2>
+
+        <form class="form-stack" action="#" method="post" novalidate>
+          <!-- Paciente (si ya lo traes desde el expediente, puede ir readonly) -->
+          <div class="mb-2">
+            <label for="paciente" class="form-label">Paciente</label>
+            <input id="paciente" name="paciente" type="text" class="form-control" placeholder="Ej. Marcos Javier Victoria Cervantes">
+          </div>
+
+          <!-- Selector Venta / Pago -->
+          <div class="mb-2">
+            <span class="form-label d-block fw-900">Tipo de movimiento</span>
+            <div class="pill-group" role="group" aria-label="Tipo de movimiento">
+              <label class="pill">
+                <input type="radio" name="tipoMov" value="venta" checked>
+                <span>Venta</span>
+              </label>
+              <label class="pill">
+                <input type="radio" name="tipoMov" value="pago">
+                <span>Pago</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Fecha / Monto -->
+          <div class="grid-2 gap-12">
+            <div class="mb-2">
+              <label for="fecha" class="form-label">Fecha</label>
+              <input id="fecha" name="fecha" type="date" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label for="monto" class="form-label">Monto</label>
+              <div class="money">
+                <span>$</span>
+                <input id="monto" name="monto" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Método / Referencia -->
+          <div class="grid-2 gap-12">
+            <div class="mb-2">
+              <label for="metodo" class="form-label">Método de pago</label>
+              <select id="metodo" name="metodo" class="form-select" required>
+                <option value="" selected disabled>Selecciona…</option>
+                <option>Efectivo</option>
+                <option>Tarjeta</option>
+                <option>Transferencia</option>
+                <option>Mixto</option>
+                <option>Credito</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="referencia" class="form-label">Referencia (opcional)</label>
+              <input id="referencia" name="referencia" type="text" class="form-control" placeholder="Folio, últimos 4, banco…">
+            </div>
+          </div>
+
+          <!-- Concepto (sirve para Venta; si es Pago puedes dejar “Abono”) -->
+          <div class="mb-2">
+            <label for="concepto" class="form-label">Concepto</label>
+            <select id="concepto" name="concepto" class="form-select">
+              <option value="" selected disabled>Selecciona…</option>
+              <option>Armazón</option>
+              <option>Material (micas)</option>
+              <option>Tratamiento</option>
+              <option>Diseño (progresivo/bifocal)</option>
+              <option>Accesorio/servicio</option>
+              <option>Abono (pago)</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <!-- Nota -->
+          <div class="mb-2">
+            <label for="nota" class="form-label">Nota</label>
+            <textarea id="nota" name="nota" rows="3" class="form-control" placeholder="Observaciones…"></textarea>
+          </div>
+
+          <!-- Acciones -->
+          <div class="actions">
+            <button type="submit" class="btn-primario">Guardar (UI)</button>
+            <a class="btn-secundario" href="EXPEDIENTES.html">Cancelar</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- Resumen estático (opcional; ayuda a validar antes de guardar) -->
+      <aside class="card-occhi summary">
+        <h3 class="sum-title">Resumen</h3>
+        <dl class="sum-list">
+          <div><dt>Total vendido</dt><dd class="right">$ —</dd></div>
+          <div><dt>Pagado</dt><dd class="right">$ —</dd></div>
+          <div><dt>Adeudo</dt><dd class="right">$ —</dd></div>
+        </dl>
+        <p class="muted small">* Los totales se actualizarán cuando integremos la lógica con JavaScript/BD.</p>
+      </aside>
+    </main>
+
+    <footer class="mt-2 text-muted fw-bold">© 2025 VIXERIA</footer>
+  </div>
+</body>
+</html>

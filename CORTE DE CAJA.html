@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OcchiApp | Corte de caja</title>
+  <link rel="stylesheet" href="Style_Cc.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <a class="back" href="FINANZAS.html" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="28" height="28">
+        </a>
+        <h1 class="title">Corte de caja</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="VIXERIA OcchiApp">
+    </header>
+
+    <!-- Barra superior: fecha -->
+    <section class="meta">
+      <div class="meta-item">
+        <span class="label">Fecha</span>
+        <div class="pill">— / — / —</div>
+      </div>
+      <div class="meta-item">
+        <span class="label">Turno</span>
+        <div class="pill">—</div>
+      </div>
+    </section>
+
+    <!-- Layout principal -->
+    <main class="layout">
+      <!-- Columna izquierda: Efectivo -->
+      <section class="card" aria-label="Efectivo">
+        <h2>Efectivo</h2>
+
+        <div class="grid head">
+          <div>Denominación</div>
+          <div class="center">Cantidad</div>
+          <div class="right">Subtotal</div>
+        </div>
+
+        <!-- Filas (UI sin lógica) -->
+        <div class="grid">
+          <div>$ 1</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 2</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 5</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 10</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 20</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 50</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 100</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 200</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 500</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+        <div class="grid">
+          <div>$ 1000</div>
+          <div class="center"><input type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          <div class="right muted">—</div>
+        </div>
+
+        <hr class="sep" />
+        <div class="total-line">
+          <span>Total efectivo</span>
+          <strong>$ —</strong>
+        </div>
+      </section>
+
+      <!-- Columna derecha: tarjetas / transferencias / resumen -->
+      <section class="right-col">
+        <article class="card">
+          <h2>Tarjeta</h2>
+          <div class="rows head"><div>Concepto</div><div class="right">Monto</div></div>
+          <div class="rows"><div>VISA/Mastercard</div><div class="right">—</div></div>
+          <div class="rows"><div>Terminal 2 (si aplica)</div><div class="right">—</div></div>
+          <hr class="sep" />
+          <div class="total-line">
+            <span>Total tarjeta</span><strong>$ —</strong>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Transferencia</h2>
+          <div class="rows head"><div>Banco</div><div class="right">Monto</div></div>
+          <div class="rows"><div>SPEI/Depósito</div><div class="right">—</div></div>
+          <div class="rows"><div>Otros</div><div class="right">—</div></div>
+          <hr class="sep" />
+          <div class="total-line">
+            <span>Total transferencia</span><strong>$ —</strong>
+          </div>
+        </article>
+
+        <article class="card summary">
+          <h2>Resumen</h2>
+          <div class="rows"><div>Efectivo</div><div class="right">$ —</div></div>
+          <div class="rows"><div>Tarjeta</div><div class="right">$ —</div></div>
+          <div class="rows"><div>Transferencia</div><div class="right">$ —</div></div>
+          <hr class="sep" />
+          <div class="grand">
+            <span>Total del corte</span>
+            <strong>$ —</strong>
+          </div>
+        </article>
+
+        <div class="actions">
+          <button class="btn primary" type="button" disabled>Realizar corte</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 VIXERIA</footer>
+  </div>
+</body>
+</html>

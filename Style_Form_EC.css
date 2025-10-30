@@ -1,0 +1,122 @@
+:root{
+  --borde:#111;
+  --bg:#f1f1f3;
+  --card:#fff;
+  --ink:#111;
+  --muted:#60646c;
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--bg); color:var(--ink);
+  font-family: Georgia,"Times New Roman",serif; }
+
+.wrap{ max-width:1200px; margin:0 auto; padding:16px 18px 80px; }
+
+/* Header */
+.title{ font-size:44px; font-weight:900; }
+.logo{ height:48px; width:auto; }
+.back{ display:grid; place-items:center; width:44px; height:44px;
+  border:3px solid var(--borde); border-radius:10px; background:#fff; }
+
+/* Tarjetas/fieldset */
+.card-occhi{
+  background:var(--card);
+  border:3px solid var(--borde);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:16px;
+}
+.card-occhi > legend{
+  margin:0 0 8px 0;
+  font-weight:900; font-size:20px;
+  padding:6px 10px;
+  border:3px solid var(--borde);
+  border-radius:10px;
+  background:#fff;
+}
+
+/* Controles */
+.form-label{ font-weight:900; }
+.form-control, .form-select, textarea{
+  border:2px solid var(--borde);
+  border-radius:10px;
+  background:#fff;
+}
+.checkline{ display:flex; align-items:center; gap:8px; }
+.checkline label{ margin:0; }
+
+/* ========= Tablas ligeras (grids) ========= */
+.table-like{
+  background:#fff;
+  border:3px solid var(--borde);
+  border-radius:12px;
+  padding:8px;
+}
+
+/* Encabezado común */
+.table-like .thead{
+  display:grid;
+  gap:8px;
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+/* Filas comunes */
+.table-like .trow{
+  display:grid;
+  gap:8px;
+  align-items:center;
+  margin-bottom:6px;
+}
+.table-like .trow input{ height:38px; }
+
+/* AV: 60px + 3 columnas */
+.table-like.av .thead{
+  grid-template-columns: 60px repeat(3, 1fr);
+}
+.table-like.av .trow{
+  grid-template-columns: 60px repeat(3, 1fr);
+}
+
+/* RX del PX: 60px + 4 columnas (SPH, CIL, EJE, ADD) */
+.table-like.rx4 .thead{
+  grid-template-columns: 60px repeat(4, 1fr);
+}
+.table-like.rx4 .trow{
+  grid-template-columns: 60px repeat(4, 1fr);
+}
+
+/* RX Final: 60px + 6 columnas (SPH, CIL, EJE, ADD, DNP, ALT) */
+.table-like.rx7 .thead{
+  grid-template-columns: 60px repeat(6, 1fr);
+}
+.table-like.rx7 .trow{
+  grid-template-columns: 60px repeat(6, 1fr);
+}
+
+/* Acciones */
+.actions{
+  display:flex; gap:10px; margin-top:10px;
+}
+.btn-primario, .btn-secundario{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border:3px solid var(--borde); border-radius:12px;
+  background:#fff; color:var(--ink); font-weight:900; text-decoration:none;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.btn-primario:hover, .btn-secundario:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.14);
+}
+
+/* Utilidades */
+.text-muted{ color:var(--muted) !important; }
+
+/* Responsive */
+@media (max-width:992px){
+  .title{ font-size:38px; }
+}
+@media (max-width:680px){
+  /* Las grids ya se adaptan al ancho; no hace falta cambiar columnas */
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OcchiApp | Nueva cita (Agenda)</title>
+
+  <!-- (Opcional) Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos OcchiApp -->
+  <link rel="stylesheet" href="Style_Form_Ag.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="left">
+        <a class="back" href="AGENDA.html" title="Regresar a Agenda" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="22" height="22">
+        </a>
+        <h1 class="title">Nueva cita (Agenda)</h1>
+      </div>
+      <img src="IMAGENES/LOGO.png" alt="OcchiApp" class="logo">
+    </header>
+
+    <!-- Contenido -->
+    <main class="layout">
+      <!-- Formulario principal -->
+      <section class="card-occhi">
+        <h2 class="card-title">Programar cita</h2>
+
+        <form class="form-stack" action="#" method="post" novalidate>
+          <!-- Paciente (select con id–nombre + “Nuevo paciente”) -->
+          <div class="mb-2">
+            <label for="paciente" class="form-label">Paciente</label>
+            <select id="paciente" name="paciente" class="form-select" required>
+              <!-- Opción dinámica para “Nuevo paciente”. Su value se actualizará con el nombre escrito. -->
+              <option id="opt-nuevo" value="" selected>Nuevo paciente</option>
+              <!-- Las demás opciones (id – nombre) se poblarán desde localStorage -->
+            </select>
+          </div>
+
+          <!-- Nombre del nuevo paciente (solo visible si está seleccionada la opción “Nuevo paciente”) -->
+          <div class="mb-2" id="nuevo-wrap">
+            <label for="pacienteNuevo" class="form-label">Nombre del nuevo paciente</label>
+            <input id="pacienteNuevo" type="text" class="form-control" placeholder="Ej. Marcos Javier Victoria Cervantes">
+            <div class="form-text">Si eliges “Nuevo paciente”, escribe aquí su nombre.</div>
+          </div>
+
+          <!-- Motivo -->
+          <div class="mb-2">
+            <label for="motivo" class="form-label">Motivo</label>
+            <select id="motivo" name="motivo" class="form-select" required>
+              <option value="" selected disabled>Selecciona…</option>
+              <option>Control / seguimiento</option>
+              <option>Examen clínico</option>
+              <option>Entrega de lentes</option>
+              <option>Ajuste / garantía</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <!-- Fecha / Hora -->
+          <div class="grid-3 gap-12">
+            <div class="mb-2">
+              <label for="fecha" class="form-label">Fecha</label>
+              <input id="fecha" name="fecha" type="date" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label for="hora" class="form-label">Hora</label>
+              <input id="hora" name="hora" type="time" class="form-control" required>
+            </div>
+          </div>
+
+          <!-- Estado -->
+          <div class="grid-2 gap-12">
+            <div class="mb-2">
+              <label for="estado" class="form-label">Estado</label>
+              <select id="estado" name="estado" class="form-select" required>
+                <option>Pendiente</option>
+                <option>Confirmada</option>
+                <option>Reprogramada</option>
+                <option>Cancelada</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notas -->
+          <div class="mb-2">
+            <label for="notas" class="form-label">Notas</label>
+            <textarea id="notas" name="notas" rows="3" class="form-control" placeholder="Motivo, indicaciones, observaciones…"></textarea>
+          </div>
+
+          <!-- Acciones -->
+          <div class="actions">
+            <button id="btn-guardar" type="submit" class="btn-primario">Guardar (UI)</button>
+            <a class="btn-secundario" href="AGENDA.html">Cancelar</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- Sugerencia / Ayuda lateral -->
+      <aside class="card-occhi summary">
+        <h3 class="sum-title">Sugerencias</h3>
+        <ul class="hint-list">
+          <li>Para pacientes existentes, selecciona su <strong>ID – Nombre</strong>.</li>
+          <li>Para un <strong>nuevo paciente</strong>, déjalo seleccionado y escribe el nombre.</li>
+          <li>La cita aparecerá en el calendario y en el expediente si eliges un paciente existente.</li>
+        </ul>
+        <p class="muted small">* El guardado usa la agenda global; si hay idPaciente, replica en el expediente.</p>
+      </aside>
+    </main>
+
+    <footer class="mt-2 text-muted fw-bold">© 2025 VIXERIA</footer>
+  </div>
+
+  <!-- Script para poblar el select y manejar “Nuevo paciente” -->
+  <script>
+    (function() {
+      const qs = (sel, root=document) => root.querySelector(sel);
+
+      function loadPacientes() {
+        try {
+          const raw = localStorage.getItem('occhiapp_pacientes');
+          const arr = raw ? JSON.parse(raw) : [];
+          return Array.isArray(arr) ? arr : [];
+        } catch { return []; }
+      }
+
+      function populatePacientesSelect() {
+        const $sel = qs('#paciente');
+        const $optNuevo = qs('#opt-nuevo');
+        if (!$sel || !$optNuevo) return;
+
+        const pacientes = loadPacientes();
+        // Agrega opciones tipo: value = idPaciente, text = "id — nombre"
+        pacientes.forEach(p => {
+          if (!p || !p.id) return;
+          const text = (p.id + ' — ' + (p.nombreCompleto || p.nombre || 'Sin nombre')).trim();
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          opt.textContent = text;
+          $sel.appendChild(opt);
+        });
+      }
+
+      function wireNuevoPacienteBehavior() {
+        const $sel = qs('#paciente');
+        const $optNuevo = qs('#opt-nuevo');
+        const $wrap = qs('#nuevo-wrap');
+        const $txt = qs('#pacienteNuevo');
+
+        if (!$sel || !$optNuevo || !$wrap || !$txt) return;
+
+        function toggle() {
+          const isNuevo = $sel.value === '' || $sel.selectedIndex === 0 || $sel.selectedOptions[0] === $optNuevo;
+          $wrap.style.display = isNuevo ? '' : 'none';
+          if (isNuevo && !$txt.value.trim()) {
+            // etiqueta por defecto
+            $optNuevo.textContent = 'Nuevo paciente';
+          }
+        }
+
+        // Cada vez que escribe el nombre, se lo asignamos como value a la opción "Nuevo paciente"
+        $txt.addEventListener('input', () => {
+          const name = $txt.value.trim();
+          // Si hay texto, la opción “Nuevo paciente” adopta ese value.
+          $optNuevo.value = name;
+          $optNuevo.textContent = name ? ('Nuevo paciente: ' + name) : 'Nuevo paciente';
+          // Asegura que siga seleccionada esa opción
+          $sel.value = name; // si está vacío, no selecciona; luego forzamos:
+          if ($sel.value !== name) {
+            // Forzar selección del "opt-nuevo" cuando value vacío
+            $sel.selectedIndex = 0;
+          }
+        });
+
+        $sel.addEventListener('change', toggle);
+        toggle(); // estado inicial
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        populatePacientesSelect();
+        wireNuevoPacienteBehavior();
+      });
+    })();
+  </script>
+
+  <!-- JS propio -->
+  <script src="JS_AG.js"></script>
+</body>
+</html>

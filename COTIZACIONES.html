@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OcchiApp | Cotización</title>
+
+  <!-- (Opcional) Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="Style_Cot.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <a class="back" href="FINANZAS.html" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="28" height="28">
+        </a>
+        <h1 class="title">Cotización</h1>
+      </div>
+      <img class="logo" src="IMAGENES/LOGO.png" alt="VIXERIA OcchiApp">
+    </header>
+
+    <!-- Formulario -->
+    <form action="#" method="post">
+      <main class="layout">
+
+        <!-- Catálogo -->
+        <section class="catalog" aria-label="Catálogo de opciones">
+
+          <!-- ===== Armazón (elección única) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Armazón</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice">
+                <input type="radio" name="armazon" id="arm-gold" value="Gold|699">
+                <label class="opt" for="arm-gold">
+                  <span class="name">Gold</span>
+                  <span class="price">$ 699.00</span>
+                </label>
+              </li>
+              <li class="choice">
+                <input type="radio" name="armazon" id="arm-premium" value="Premium|999">
+                <label class="opt" for="arm-premium">
+                  <span class="name">Premium</span>
+                  <span class="price">$ 999.00</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+
+          <!-- ===== Material (múltiple) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Material</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice">
+                <input type="checkbox" name="material[]" id="mat-promo" value="CR W Promo Single Vision|200">
+                <label class="opt" for="mat-promo">
+                  <span class="name">CR W Promo Single Vision</span>
+                  <span class="price">$ 200.00</span>
+                </label>
+              </li>
+              <li class="choice">
+                <input type="checkbox" name="material[]" id="mat-single" value="CR W Single Vision|450">
+                <label class="opt" for="mat-single">
+                  <span class="name">CR W Single Vision</span>
+                  <span class="price">$ 450.00</span>
+                </label>
+              </li>
+              <li class="choice">
+                <input type="checkbox" name="material[]" id="mat-pc" value="Policarbonato|1000">
+                <label class="opt" for="mat-pc">
+                  <span class="name">Policarbonato</span>
+                  <span class="price">$ 1,000.00</span>
+                </label>
+              </li>
+              <li class="choice">
+                <input type="checkbox" name="material[]" id="mat-hi" value="Hi Index|1300">
+                <label class="opt" for="mat-hi">
+                  <span class="name">Hi Index</span>
+                  <span class="price">$ 1,300.00</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+
+          <!-- ===== Tratamiento (múltiple) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Tratamiento</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-anti" value="Antirreflex|400"><label class="opt" for="tr-anti"><span class="name">Antirreflex</span><span class="price">$ 400.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-blue" value="Blue Light|900"><label class="opt" for="tr-blue"><span class="name">Blue Light</span><span class="price">$ 900.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-foto" value="Fotocromático|1000"><label class="opt" for="tr-foto"><span class="name">Fotocromático</span><span class="price">$ 1,000.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-fotocolor" value="Fotocolors|1400"><label class="opt" for="tr-fotocolor"><span class="name">Fotocolors</span><span class="price">$ 1,400.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-polar" value="Polarizado|1300"><label class="opt" for="tr-polar"><span class="name">Polarizado</span><span class="price">$ 1,300.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="tratamiento[]" id="tr-tinte" value="Tinte|500"><label class="opt" for="tr-tinte"><span class="name">Tinte</span><span class="price">$ 500.00</span></label></li>
+            </ul>
+          </fieldset>
+
+          <!-- ===== Diseño (múltiple) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Diseño</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-flat" value="Bifocal FlatTop|1000"><label class="opt" for="di-flat"><span class="name">Bifocal FlatTop</span><span class="price">$ 1,000.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-nif" value="Nifocal Blended|950"><label class="opt" for="di-nif"><span class="name">Nifocal Blended</span><span class="price">$ 950.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-prog-b" value="Progresivo Básico|1500"><label class="opt" for="di-prog-b"><span class="name">Progresivo Básico</span><span class="price">$ 1,500.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-prog-p" value="Progresivo Panorámico|2000"><label class="opt" for="di-prog-p"><span class="name">Progresivo Panorámico</span><span class="price">$ 2,000.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-lc-b" value="Lente de contacto blando|2299"><label class="opt" for="di-lc-b"><span class="name">Lente de contacto blando</span><span class="price">$ 2,299.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-lc-t" value="Lente de contacto tórico|2899"><label class="opt" for="di-lc-t"><span class="name">Lente de contacto tórico</span><span class="price">$ 2,899.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="diseno[]" id="di-lc-a" value="Lente de contacto anual|3300"><label class="opt" for="di-lc-a"><span class="name">Lente de contacto anual</span><span class="price">$ 3,300.00</span></label></li>
+            </ul>
+          </fieldset>
+
+          <!-- ===== Accesorios (múltiple) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Accesorios</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-anti" value="Solución antiempañante|50"><label class="opt" for="ac-anti"><span class="name">Solución antiempañante</span><span class="price">$ 50.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-azul" value="Solución azul|35"><label class="opt" for="ac-azul"><span class="name">Solución azul</span><span class="price">$ 35.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-opti" value="Solución OptiFree 300ml|220"><label class="opt" for="ac-opti"><span class="name">Solución OptiFree 300ml</span><span class="price">$ 220.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-parche" value="Parche|50"><label class="opt" for="ac-parche"><span class="name">Parche</span><span class="price">$ 50.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-liston-n" value="Listón naranja|20"><label class="opt" for="ac-liston-n"><span class="name">Listón naranja</span><span class="price">$ 20.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-liston-c" value="Listón cuero|45"><label class="opt" for="ac-liston-c"><span class="name">Listón cuero</span><span class="price">$ 45.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-liston-g" value="Listón goma de colores|40"><label class="opt" for="ac-liston-g"><span class="name">Listón goma de colores</span><span class="price">$ 40.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-cadena" value="Cadena sujetadora|120"><label class="opt" for="ac-cadena"><span class="name">Cadena sujetadora</span><span class="price">$ 120.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-estuche" value="Estuche rígido|90"><label class="opt" for="ac-estuche"><span class="name">Estuche rígido</span><span class="price">$ 90.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="accesorios[]" id="ac-fije" value="Fijé|20"><label class="opt" for="ac-fije"><span class="name">Fijé</span><span class="price">$ 20.00</span></label></li>
+            </ul>
+          </fieldset>
+
+          <!-- ===== Extras (múltiple) ===== -->
+          <fieldset class="card">
+            <header class="card-h">
+              <legend><h2>Extras</h2></legend>
+              <span class="col-head">$ Costo</span>
+            </header>
+            <ul class="opts">
+              <li class="choice"><input type="checkbox" name="extras[]" id="ex-diop" value="Más de 3 dioptrías|100"><label class="opt" for="ex-diop"><span class="name">Más de 3 dioptrías</span><span class="price">$ 100.00</span></label></li>
+              <li class="choice"><input type="checkbox" name="extras[]" id="ex-tall" value="Tallado|100"><label class="opt" for="ex-tall"><span class="name">Tallado</span><span class="price">$ 100.00</span></label></li>
+            </ul>
+          </fieldset>
+
+        </section>
+
+        <!-- Resumen (estático por ahora) -->
+        <aside class="summary" aria-label="Resumen de la cotización">
+          <h3>Resumen</h3>
+          <div class="sum-grid head">
+            <div>Categoría</div>
+            <div class="right">$ Costo</div>
+          </div>
+          <div class="sum-grid"><div>Armazón</div><div class="right">—</div></div>
+          <div class="sum-grid"><div>Material</div><div class="right">—</div></div>
+          <div class="sum-grid"><div>Tratamiento</div><div class="right">—</div></div>
+          <div class="sum-grid"><div>Diseño</div><div class="right">—</div></div>
+          <div class="sum-grid"><div>Accesorios</div><div class="right">—</div></div>
+          <div class="sum-grid"><div>Extras</div><div class="right">—</div></div>
+
+          <hr class="sep" />
+          <div class="total">
+            <span>Total</span>
+            <strong>$ —</strong>
+          </div>
+        </aside>
+      </main>
+
+      <!-- Acciones -->
+      <div class="actions">
+        <button type="reset" class="btn-primario">Limpiar</button>
+      </div>
+
+      <footer>© 2025 VIXERIA</footer>
+    </form>
+  </div>
+
+  <!-- (Opcional) Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+</body>
+</html>

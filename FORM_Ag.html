@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OcchiApp | Nueva cita</title>
+
+  <!-- (Opcional) Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos OcchiApp -->
+  <link rel="stylesheet" href="Style_Form_Ag.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="left">
+        <a class="back" href="VIS_EXPEDIENTES.html" title="Regresar" aria-label="Regresar">
+          <img src="IMAGENES/FLECHA.png" alt="" width="22" height="22">
+        </a>
+        <h1 class="title">Nueva cita</h1>
+      </div>
+      <img src="IMAGENES/LOGO.png" alt="OcchiApp" class="logo">
+    </header>
+
+    <!-- Contenido -->
+    <main class="layout">
+      <!-- Formulario principal -->
+      <section class="card-occhi">
+        <h2 class="card-title">Programar cita</h2>
+
+        <form class="form-stack" action="#" method="post" novalidate>
+          <!-- Paciente (si vienes desde el expediente, suele ir prellenado/solo lectura) -->
+          <div class="mb-2">
+            <label for="paciente" class="form-label">Paciente</label>
+            <input id="paciente" name="paciente" type="text" class="form-control"
+                   placeholder="Ej. Marcos Javier Victoria Cervantes">
+          </div>
+
+          <!-- Motivo -->
+          <div class="mb-2">
+            <label for="motivo" class="form-label">Motivo</label>
+            <select id="motivo" name="motivo" class="form-select" required>
+              <option value="" selected disabled>Selecciona…</option>
+              <option>Control / seguimiento</option>
+              <option>Examen clínico</option>
+              <option>Entrega de lentes</option>
+              <option>Ajuste / garantía</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <!-- Fecha / Hora -->
+          <div class="grid-3 gap-12">
+            <div class="mb-2">
+              <label for="fecha" class="form-label">Fecha</label>
+              <input id="fecha" name="fecha" type="date" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label for="hora" class="form-label">Hora</label>
+              <input id="hora" name="hora" type="time" class="form-control" required>
+            </div>
+          </div>
+
+          <!-- Estado -->
+          <div class="grid-2 gap-12">
+            <div class="mb-2">
+              <label for="estado" class="form-label">Estado</label>
+              <select id="estado" name="estado" class="form-select" required>
+                <option>Pendiente</option>
+                <option>Confirmada</option>
+                <option>Reprogramada</option>
+                <option>Cancelada</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notas -->
+          <div class="mb-2">
+            <label for="notas" class="form-label">Notas</label>
+            <textarea id="notas" name="notas" rows="3" class="form-control" placeholder="Motivo, indicaciones, observaciones…"></textarea>
+          </div>
+
+          <!-- Acciones -->
+          <div class="actions">
+            <button id="btn-guardar" type="submit" class="btn-primario">Guardar (UI)</button>
+            <a class="btn-secundario" href="VIS_EXPEDIENTES.html">Cancelar</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- Sugerencia / Ayuda lateral -->
+      <aside class="card-occhi summary">
+        <h3 class="sum-title">Sugerencias</h3>
+        <ul class="hint-list">
+          <li>Define <strong>motivo</strong> y <strong>horario</strong> coherentes con el servicio.</li>
+          <li>Marca <strong>estado</strong> “Confirmada” si ya validaste con el paciente.</li>
+          <li>Usa recordatorios para reducir inasistencias.</li>
+        </ul>
+        <p class="muted small">* Al integrar JS/BD, esta cita se añadirá al expediente del paciente y a la agenda.</p>
+      </aside>
+    </main>
+
+    <footer class="mt-2 text-muted fw-bold">© 2025 VIXERIA</footer>
+  </div>
+
+  <!-- JS propio -->
+  <script src="JS_AG.js"></script>
+</body>
+</html>

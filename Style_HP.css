@@ -1,0 +1,146 @@
+:root{
+  --grad1:#6EE7F9;
+  --grad2:#A78BFA;
+  --grad3:#F472B6;
+}
+
+/* Base */
+body{
+  margin:0;
+  background:
+    radial-gradient(1000px 600px at 20% -10%, rgba(167,139,250,.35), transparent 60%),
+    radial-gradient(900px 500px at 110% 0%, rgba(244,114,182,.35), transparent 55%),
+    #0f1222;
+  color:#fff;
+  font-family:'Poppins', system-ui, sans-serif;
+}
+
+/* Navbar */
+.nav-hero{
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.nav-hero .nav-link{ color:#e0e0e0; font-weight:700; }
+.nav-hero .nav-link:hover,
+.nav-hero .nav-link.active{ color:#fff; text-decoration:underline; }
+.logo{ height:42px; }
+
+/* Hero */
+.hero{ margin-top:40px; }
+.grad-text{
+  background: linear-gradient(90deg,var(--grad1),var(--grad2),var(--grad3));
+  -webkit-background-clip: text;   /* WebKit */
+          background-clip: text;   /* Estándar */
+  -webkit-text-fill-color: transparent; /* Evita warning en editores y asegura transparencia */
+  color: transparent;              /* Fallback */
+}
+.glass-card{
+  border:1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.car-img{ height:400px; object-fit:cover; }
+
+/* Botones */
+.btn-pill{
+  border:3px solid #fff; background:#fff; color:#0f1222;
+  border-radius:999px; font-weight:900; padding:10px 18px;
+}
+.btn-cta{
+  background:linear-gradient(90deg,var(--grad1),var(--grad2),var(--grad3));
+  color:#0f1222; border:none; padding:12px 18px; border-radius:14px; font-weight:900;
+  text-decoration:none; display:inline-block;
+}
+.btn-ghost{
+  border:2px solid #fff; color:#fff; background:transparent; border-radius:12px; padding:10px 16px; font-weight:800;
+}
+
+/* Secciones */
+.section-pad{ padding:64px 0; }
+.muted{ color:#cfd2d9; }
+
+/* Funciones */
+.feature-card{
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:16px;
+  padding:18px; transition:.2s;
+}
+.feature-card:hover{ transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.3); }
+.icon-bubble{
+  width:52px; height:52px; display:grid; place-items:center; font-size:26px;
+  border-radius:14px; background:linear-gradient(135deg,var(--grad1),var(--grad2));
+  margin-bottom:10px;
+}
+
+/* Cards de módulos */
+.card.glass-card{
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:16px;
+  transition:.2s;
+}
+.card.glass-card:hover{ transform:scale(1.02); }
+
+/* Offcanvas y forms */
+.offcanvas{
+  background:#0f1222; color:#fff; border-left:1px solid rgba(255,255,255,.2);
+}
+/* Si tu Bootstrap no incluye .btn-close-white, este filtro lo emula */
+.btn-close-white{ filter: invert(1) grayscale(100%); opacity:.9; }
+.glass-inner{
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:14px;
+}
+.form-control{
+  background:rgba(255,255,255,.95); border-radius:10px; border:2px solid #0f1222;
+}
+
+/* Price cards */
+.price-card{
+  border:1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  border-radius:18px; color:#fff;
+  padding:18px;
+  transition: transform .08s ease, box-shadow .1s ease;
+}
+.price-card:hover{ transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+.price-card .price{
+  font-size:36px; font-weight:900; margin:4px 0 12px;
+}
+.price-card .price span{ font-size:16px; font-weight:700; color:#e8e8e8; }
+.price-card ul{ padding-left: 18px; margin-bottom:16px; }
+.price-card li{ margin-bottom:6px; }
+.price-card.featured{
+  outline:3px solid rgba(255,255,255,.45);
+  background: linear-gradient(135deg, rgba(110,231,249,.18), rgba(167,139,250,.18) 45%, rgba(244,114,182,.18));
+}
+
+/* Footer */
+.footer{
+  text-align:center; color:#ddd; padding:20px; background:rgba(255,255,255,.06);
+  border-top:1px solid rgba(255,255,255,.2);
+}
+
+/* Responsive */
+@media (max-width: 991.98px){
+  .display-5{ font-size:2rem; }
+}
+
+/* Página Nosotros */
+.card.glass-card.text-center {
+  min-height: 170px;
+}
+.card.glass-card.text-center h5 {
+  color: var(--grad1);
+}
+.card.glass-card.text-center p {
+  color: #e3e3e3;
+}
+/* Ajuste de color para matrículas */
+.card.glass-card.text-center p.text-muted {
+  color: #F472B6 !important; /* azul brillante legible */
+  font-weight: 600;
+}
